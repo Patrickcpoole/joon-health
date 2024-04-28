@@ -2,12 +2,20 @@ import { Text, View, ScrollView } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-
-import { useForm } from '../contexts/FormContext';
-import FormField from '../../components/FormField';
+import { useForm } from '../contexts/FormContext'
 import CustomButton from '../../components/CustomButton';
+import ButtonGroupSelector from '../../components/ButtonGroupSelector'
+
+
+const genderOptions = [
+  { id: 'male', label: 'Male' },
+  { id: 'female', label: 'Female' },
+  { id: 'other', label: 'Other' },
+];
+
 
 const GenderScreen = () => {
+
 	const { formState, updateField } = useForm();
 
 	return (
@@ -15,10 +23,15 @@ const GenderScreen = () => {
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
 					<Text className='text-2xl font-bold'>What is your gender?</Text>
+          <ButtonGroupSelector 
+            options={genderOptions}
+						handleSelectButton={(item) => updateField('gender', item.id)}
+						selected={formState.gender}
+          />
 					<CustomButton
 						title="Let's get started!"
-						handlePress={() => router.push('/screens/GenderScreen')}
-						containerStyles='w-full mt-7'
+						handlePress={() => router.push('/screens/ChildrenScreen')}
+						containerStyles='w-full'
 					/>
 				</View>
 			</ScrollView>

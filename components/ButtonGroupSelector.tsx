@@ -1,54 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 
-const ButtonGroupSelector = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+interface Option {
+  id: string;
+  label: string;
+}
 
-  const handlePress = (option) => {
-    setSelectedOption(option);
+interface ButtonGroupSelectorProps {
+  options: Option[];
+  handleSelectButton: (option: Option) => void;
+  selected: string;
+}
+
+const ButtonGroupSelector = ({ options, handleSelectButton, selected }: ButtonGroupSelectorProps) => {
+  const renderButton = ({ option}: {option: Option}) => {
+
+    const toggledStyles = {
+      button: 'bg-accent',
+      text: 'text-primary'
+    }
+
+    const buttonStyle = option.id === selected ? toggledStyles.button : null
+    const textStyle = option.id === selected ? toggledStyles.text : null
+
+    return (
+    <TouchableOpacity
+      key={option.id}
+      className={`flex justify-center items-center bg-[#c8d7e6] 
+      p-4 m-4 rounded-2xl w-[25%]  text-black ${buttonStyle}`}
+      onPress={() => handleSelectButton(option)}
+    >
+      <Text className={`text-text text-lg ${textStyle}`}>{option.label}</Text>
+    </TouchableOpacity>
+    )
   };
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={[styles.button, selectedOption === item.id && styles.selected]}
-      onPress={() => handlePress(item.id)}
-    >
-      <Text style={styles.buttonText}>{item.label}</Text>
-    </TouchableOpacity>
-  );
-
-  
-
   return (
-    <FlatList
-      data={selectedOptions}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-      horizontal={true} // Set to false if you want vertical list
-      contentContainerStyle={styles.container}
-    />
+    // <FlatList
+    //   data={options}
+    //   renderItem={renderItem}
+    //   keyExtractor={item => item.id}
+    //   horizontal={true}
+    // />
+    <View className='flex w-full flex-row'>
+      {options.map(option => renderButton({option}))}
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    paddingHorizontal: 10,
-  },
-  button: {
-    backgroundColor: '#DDD',
-    padding: 10,
-    marginHorizontal: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 18,
-    color: '#000',
-  },
-  selected: {
-    backgroundColor: '#007BFF',
-    color: '#FFF',
-  },
-});
 
-export default GenderSelector;
+
+export default ButtonGroupSelector;

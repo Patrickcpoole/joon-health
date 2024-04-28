@@ -9,9 +9,11 @@ type FormState = {
 };
 
 
+type UpdateFieldFunction = (field: keyof FormState, value: string | string[]) => void;
+
 type FormContextType = {
   formState: FormState;
-  updateField: (field: keyof FormState, value: string) => void;
+  updateField: UpdateFieldFunction;
 };
 
 
@@ -34,8 +36,11 @@ export const FormProvider: React.FC<{children: ReactNode}> = ({ children }) => {
    
   });
 
-  const updateField = (field: keyof FormState, value: string): void => {
-    setFormState((prev) => ({ ...prev, [field]: value }));
+  const updateField: UpdateFieldFunction = (field, value) => {
+    setFormState((prev) => {
+      const newValue = typeof value === 'string' || Array.isArray(value) ? value : prev[field];
+      return { ...prev, [field]: newValue };
+    });
   };
 
   return (

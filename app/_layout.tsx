@@ -11,6 +11,18 @@ const RootLayout = () => {
 					name='screens/NameScreen'
 					options={{ headerShown: false }}
 				/>
+				<Stack.Screen
+					name='screens/GenderScreen'
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='screens/ChildrenScreen'
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='screens/SignUpScreen'
+					options={{ headerShown: false }}
+				/>
 			</Stack>
 		</FormProvider>
 	);
