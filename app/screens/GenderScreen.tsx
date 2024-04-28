@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { useForm } from '../contexts/FormContext'
 import CustomButton from '../../components/CustomButton';
 import ButtonGroupSelector from '../../components/ButtonGroupSelector'
+import BackButton from '../../components/BackButton';
 
 
 const genderOptions = [
@@ -22,6 +23,7 @@ const GenderScreen = () => {
 		<SafeAreaView className='bg-primary h-full'>
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
+					<BackButton />
 					<Text className='text-2xl font-bold'>What is your gender?</Text>
           <ButtonGroupSelector 
             options={genderOptions}

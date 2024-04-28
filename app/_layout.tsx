@@ -23,6 +23,10 @@ const RootLayout = () => {
 					name='screens/CreateAccountScreen'
 					options={{ headerShown: false }}
 				/>
+				<Stack.Screen
+					name='screens/DashboardScreen'
+					options={{ headerShown: false }}
+				/>
 			</Stack>
 		</FormProvider>
 	);

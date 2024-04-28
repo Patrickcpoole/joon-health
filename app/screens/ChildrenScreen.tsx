@@ -6,6 +6,7 @@ import { router } from 'expo-router';
 import { useForm } from '../contexts/FormContext';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
+import BackButton from '../../components/BackButton';
 
 const ChildrenScreen = () => {
 	const { formState, updateField } = useForm();
@@ -29,6 +30,7 @@ const handleRemoveChild = (child: string) => {
 		<SafeAreaView className='bg-primary h-full'>
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
+					<BackButton/>
 					<Text className='text-2xl font-bold'>Add your children</Text>
 					<FormField
 						otherStyles='mt-4'

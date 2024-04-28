@@ -16,6 +16,7 @@ type UpdateFieldFunction = (field: keyof FormState, value: string | string[]) =>
 type FormContextType = {
   formState: FormState;
   updateField: UpdateFieldFunction;
+  resetForm: () => void
 };
 
 
@@ -30,15 +31,20 @@ export const useForm = (): FormContextType => {
   return context;
 };
 
+
+
 export const FormProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [formState, setFormState] = useState<FormState>({
+
+  const initialState = {
     name: '',
     gender: '',
     children: [],
     email: '',
     password: ''
    
-  });
+  }
+
+  const [formState, setFormState] = useState<FormState>(initialState);
 
   const updateField: UpdateFieldFunction = (field, value) => {
     setFormState((prev) => {
@@ -47,8 +53,12 @@ export const FormProvider: React.FC<{children: ReactNode}> = ({ children }) => {
     });
   };
 
+  const resetForm = () => {
+    setFormState(initialState)
+  }
+
   return (
-    <FormContext.Provider value={{ formState, updateField }}>
+    <FormContext.Provider value={{ formState, updateField, resetForm }}>
       {children}
     </FormContext.Provider>
   );

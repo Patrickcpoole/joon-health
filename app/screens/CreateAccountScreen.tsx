@@ -6,15 +6,24 @@ import { router } from 'expo-router';
 import { useForm } from '../contexts/FormContext';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
+import BackButton from '../../components/BackButton';
 
 const SignUpScreen = () => {
 
   const { formState, updateField } = useForm();
 
+	const handleCreateAccount = () => {
+
+		// api.post('/create-account', formState) api call to create account
+
+		router.push('/screens/DashboardScreen')
+	}
+
 	return (
 		<SafeAreaView className='bg-primary h-full'>
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
+					<BackButton />
 					<Text className='text-2xl font-bold'>Create Your Account</Text>
 					<FormField
 						otherStyles='mt-4'
@@ -37,7 +46,7 @@ const SignUpScreen = () => {
 					/>
 					<CustomButton
 						title="Create Account"
-						handlePress={() => router.push('/screens/DashboardScreen')}
+						handlePress={handleCreateAccount}
 						containerStyles='w-full mt-7'
 					/>
 				</View>
