@@ -19,5 +19,10 @@ declare module 'react-native' {
   export interface ImageProps extends RNImageProps{
     className?: string;
   }
-  // Include other components as needed
+
+  declare module '*.webp' {
+    const content: any;
+    export default content;
+}
+
 }

@@ -45,7 +45,7 @@ const FormField = ({
 			>
 				{leftIcon && (
 					<AntDesign
-						name={leftIcon.name}
+						name={leftIcon.name as any}
 						size={leftIcon.size}
 						color={leftIcon.color}
 					/>
@@ -60,10 +60,10 @@ const FormField = ({
 				/>
 				{rightIcon && (
 					<FontAwesome
-						name={showPassword ? 'eye-slash' : rightIcon.name}
+						name={showPassword ? 'eye-slash' : (rightIcon.name as any)}
 						size={rightIcon.size}
 						color={rightIcon.color}
-            onPress={() => setShowPassword(!showPassword)}
+						onPress={() => setShowPassword(!showPassword)}
 					/>
 				)}
 			</View>

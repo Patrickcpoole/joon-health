@@ -33,7 +33,7 @@ const CustomButton = ({
 			disabled={isLoading}
 		>
 			
-			{iconName && <AntDesign name={iconName} size={iconSize} color={iconColor} />}
+			{iconName && <AntDesign name={iconName as any} size={iconSize} color={iconColor} />}
 			<Text className={`text-primary font-roboto text-lg ${textStyles}`}>
 				{title}
 			</Text>
