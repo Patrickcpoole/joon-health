@@ -61,7 +61,7 @@ const handleRemoveChild = (child: string) => {
 					/>
 					<CustomButton
 						title="Next"
-						handlePress={() => router.push('/screens/SignUpScreen')}
+						handlePress={() => router.push('/screens/CreateAccountScreen')}
 						containerStyles='w-full mt-7'
 					/>
 				</View>

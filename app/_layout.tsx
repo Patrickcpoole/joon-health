@@ -20,7 +20,7 @@ const RootLayout = () => {
 					options={{ headerShown: false }}
 				/>
 				<Stack.Screen
-					name='screens/SignUpScreen'
+					name='screens/CreateAccountScreen'
 					options={{ headerShown: false }}
 				/>
 			</Stack>
