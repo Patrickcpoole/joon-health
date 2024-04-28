@@ -5,6 +5,8 @@ type FormState = {
   name: string;
   gender: string;
   children: string[];
+  email: string;
+  password: string;
  
 };
 
@@ -33,6 +35,8 @@ export const FormProvider: React.FC<{children: ReactNode}> = ({ children }) => {
     name: '',
     gender: '',
     children: [],
+    email: '',
+    password: ''
    
   });
 
