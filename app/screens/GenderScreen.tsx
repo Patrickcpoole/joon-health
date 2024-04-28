@@ -31,7 +31,7 @@ const GenderScreen = () => {
 						selected={formState.gender}
           />
 					<CustomButton
-						title="Let's get started!"
+						title="Next"
 						handlePress={() => router.push('/screens/ChildrenScreen')}
 						containerStyles='w-full'
 					/>

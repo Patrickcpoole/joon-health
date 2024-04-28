@@ -12,14 +12,14 @@ const DashboardScreen = () => {
 
   const handleStartOver = () => {
     resetForm();
-    router.push('/screens/NameScreen')
+    router.push('/')
   }
 
 	return (
 		<SafeAreaView className='bg-primary h-full'>
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
-					<Text className='text-2xl font-bold'>Dashboard</Text>
+					<Text className='text-2xl font-bold mb-4'>Dashboard</Text>
 					<DisplayCard>
 						<Text className='text-lg'>Name: {formState.name}</Text>
 						<Text className='text-lg'>Gender: {formState.gender}</Text>

@@ -6,6 +6,7 @@ import { router } from 'expo-router';
 import { useForm } from '../contexts/FormContext';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
+import BackButton from '../../components/BackButton';
 
 const NameScreen = () => {
 	const { formState, updateField } = useForm();
@@ -14,6 +15,7 @@ const NameScreen = () => {
 		<SafeAreaView className='bg-primary h-full'>
 			<ScrollView>
 				<View className='w-full justify-center items-center min-h-[85vh] px-4 '>
+					<BackButton />
 					<Text className='text-2xl font-bold'>What is your name?</Text>
 					<FormField
 						otherStyles='mt-4'
@@ -23,7 +25,7 @@ const NameScreen = () => {
 					/>
 
 					<CustomButton
-						title="Let's get started!"
+						title="Next"
 						handlePress={() => router.push('/screens/GenderScreen')}
 						containerStyles='w-full mt-7'
 					/>
