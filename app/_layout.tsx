@@ -1,15 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Slot, Stack } from 'expo-router';
+import React from 'react';
+import { Stack } from 'expo-router';
+import { FormProvider } from './contexts/FormContext';
 
 const RootLayout = () => {
-  return (
-    <Stack>
-      <Stack.Screen name="index" options={{headerShown: false}}/>
-      <Stack.Screen name="CreateAccountScreens/NameScreen" options={{headerShown: false}}/>
-    </Stack>
-  )
-}
+	return (
+		<FormProvider>
+			<Stack>
+				<Stack.Screen name='index' options={{ headerShown: false }} />
+				<Stack.Screen
+					name='screens/NameScreen'
+					options={{ headerShown: false }}
+				/>
+			</Stack>
+		</FormProvider>
+	);
+};
 
-export default RootLayout
-
+export default RootLayout;
