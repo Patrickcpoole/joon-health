@@ -7,6 +7,7 @@ A React Native coding project for the company Joon Health.
 - Expo (Expo Router)
 - TypeScript
 - TailwindCSS
+- React Context API
 
 ## Usage
 yarn expo start
